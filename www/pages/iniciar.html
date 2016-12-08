@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Inicio</title>
+
+        <link rel="stylesheet" href="../css/themes/Bootstrap.css">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile.structure-1.4.0.min.css" />
+        <link rel="stylesheet" href="../css/themes/jquery.mobile.icons.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
+        <script src="../js/login.js"></script>
+
+
+    </head>
+    <body>
+        <div data-role="page" data-theme="a">
+        <header data-role="header">
+            <h1>Geotaxi</h1>
+        </header
+         
+            <section id="login" data-role="page">
+      
+        <article data-role="content">
+            <form id="form_login">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="txtuser">Usuario:</label>
+                    <input type="text" name="txtuser" id="txtuser" value=""  placeholder="Correo" />
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="txtpassword">Contraseña:</label>
+                    <input type="password" name="txtpassword" id="txtpassword" value="" placeholder="Contraseña" />
+                </div>
+             <div class="ui-body ui-body-b">
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a"><a href="../index.html" data-role="button" data-theme="a">Cancelar</a></div>
+                            <div class="ui-block-b"><a  id="btnLogin" data-role="button" data-theme="f">Aceptar</a></div>
+                        </fieldset>
+                    </div>
+            </form>
+
+             <!--<div id="errorMsg" style="background-color:red;color: #FFFFFF;">Usuario o Contraseña no valida</div>-->
+        </article>
+    </section>
+    <!-- Aqui nuestro dialog con el mensaje de error  -->
+    <section id="pageError" data-role="dialog">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Usuario o contraseña no valida</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+    </section>
+
+</div>
+                      
+                    </div>
+
+            </div>
+    </body>
+</html>

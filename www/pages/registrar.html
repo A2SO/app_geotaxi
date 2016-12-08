@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+       
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
+    <title>Geotaxi</title>
+    </head>
+    <body>
+    <body>
+    <section id="login" data-role="page">
+        <header data-role="header">
+            <h1>Geotaxi</h1>
+        </header>
+        <article data-role="content">
+            <form id="form_login">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="usuario">Nombres:</label>
+                    <input type="text" name="nombre" id="nombre" value="" placeholder="Nombres" class="required"/>
+
+                </div>
+                                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="ap">Apellido Paterno:</label>
+                    <input type="text" name="ap" id="ap" value="" placeholder="Apellido Paterno" class="required"/>
+
+                </div>
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="am">Apellido Materno:</label>
+                    <input type="text" name="am" id="am" value="" placeholder="Apellido Materno" class="required"/>
+
+                </div>
+
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="email">Correo:</label>
+                    <input type="text" name="email" id="email"   value="" placeholder="Correo" class="required"/>
+
+                </div>
+
+
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" name="contrasena" id="contrasena" value="" placeholder="Contraseña" class="required"/>
+                </div>
+
+                <input type="button" value="Enviar" id="btnRegistro">
+
+            </form>
+
+             <!--<div id="errorMsg" style="background-color:red;color: #FFFFFF;">Usuario o Contraseña no valida</div>-->
+        </article>
+    </section>
+    <!-- Aqui nuestro dialog con el mensaje de error  -->
+    <section id="pageError" data-role="dialog">
+        <header data-role="header">
+            <h1>Error</h1>
+        </header>
+        <article data-role="content">
+            <p>Usuario o contraseña no valida</p>
+            <a href="#" data-role="button" data-rel="back">Aceptar</a>
+        </article>
+    </section>
+</body>
+            <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+            <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+            <script type="text/javascript" src="../js/index.js"></script>
+            <script src="../js/login.js"></script>
+    </body>
+</html>
