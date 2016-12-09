@@ -1,9 +1,9 @@
 var map;
+
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
-  var geocoder = new google.maps.Geocoder;
-  var marker;
-
+var geocoder = new google.maps.Geocoder;
+var marker;
 var map_center;
 var map_zoom;
 
@@ -176,6 +176,11 @@ function calcRoute() {
             total_summary = '<div class="alert alert-success">';
             total_summary += '  <strong>Distancia : </strong>' + showDistance(distance) + " ( unos " + Math.round(time/60) + " minutos)";
             total_summary += '</div>';
+var Distancia= Math.round(distance/100) / 10 ;
+var tiempo=  Math.round(time/60);
+var final=theLeg.end_address;
+var inicio =theLeg.start_address;
+enviar_datos(Distancia,tiempo,inicio,final);
 
 			jQuery("#summary").html(total_summary);
 
@@ -190,6 +195,24 @@ function calcRoute() {
     });
 }
 
+function enviar_datos(Distancia,tiempo,inicio,final) {
+console.log(Distancia);
+    console.log(tiempo);  
+    console.log(inicio); 
+    console.log(final); 
+
+                      $.post("http://localhost/geoserver/CalculaPrecio.php",{Distancia : Distancia, tiempo : tiempo, inicio : inicio, final : final},function(respuesta){
+            if (respuesta) {
+                alert(respuesta);
+            }
+            else{
+
+
+                alert('no se envio ');
+            }
+        });
+
+}
 // Show distance in different measurements
 function showDistance(distance) {
     return Math.round(distance/100) / 10 + " km (" + Math.round((distance*0.621371192)/100) / 10 + " miles)";
