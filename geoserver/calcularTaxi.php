@@ -1,9 +1,14 @@
 <?php
-
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+Class  Calcular_taxi {
 
+
+function calcular ()
+{
+
+$mysqli = new mysqli('localhost','root','','respaldo' );
 include("calcularPerimetro.php");
 
 $lat =  4.6665578;
@@ -14,12 +19,8 @@ $direccion = new cordenadas();
 $parentReflection = $direccion->getBoundaries($lat, $lng, $distance);
 
 
-print_r($parentReflection)
-
-
-#$mysqli = new mysqli('127.0.0.1', 'root', '', 'llantas');
-$mysqli = new mysqli('localhost','root','','respaldo' );
-
+#print_r($parentReflection);
+ 
 $sql = "SELECT nombre_conductor,ap_conductor,am_conductor,push_c,latitud,longitud , ( 6371 * ACOS( 
                                              COS( RADIANS(18.8562396 ) ) 
                                              * COS(RADIANS( latitud ) ) 
@@ -34,9 +35,40 @@ $sql = "SELECT nombre_conductor,ap_conductor,am_conductor,push_c,latitud,longitu
                      AND (longitud BETWEEN  -97.112085330894  AND  -97.093078869106 )
                      HAVING distancia <  1 
                      ORDER BY distancia ASC";
+ 
+$resultado = $mysqli->query($sql);
+         /*$resultado->data_seek(4);
+         
+         while( $fila = $resultado->fetch_assoc() ){
+            $data[] = $fila;
+         }
 
-$pdo = new PDO(........)
-$stmt = $p->query('');
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-print_r($rows);
+#print_r($resultado);
+
+return $resultado;*/
+    $json = array();
+
+while($row=mysqli_fetch_assoc($resultado)){
+                $json[]=$row;
+   
+}
+
+
+
+//return $emparray;
+    echo json_encode($json);
+
+
+}
+}
+
+
+$direccion = new Calcular_taxi();
+$parentReflection = $direccion->calcular();
+
+//print_r($parentReflection);
+#echo json_encode($parentReflection, JSON_UNESCAPED_UNICODE);
+
+
+
 ?>
